@@ -1,10 +1,12 @@
 import axios from "axios";
 
-export function Todos({ todos }) {
+export function Todos({ todos, setTodos }) {
+
   async function handleMarkTodo(id) {
     try {
-      await axios.put(`http://localhost:3000/todo/${id}`);
-      window.location.reload(false);
+      const res = await axios.put(`http://localhost:3000/todo/${id}`);
+      setTodos(todos.map((t) => (t._id === id ? res.data : t)));
+      // window.location.reload(false);
     } catch (error) {
       console.error(error);
     }
