@@ -42,8 +42,8 @@ app.get("/todos", async (req, res) => {
   }
 });
 
-app.put("/completed", async (req, res) => {
-  const updatePayload = req.body;
+app.put("/todo/:id", async (req, res) => {
+  const updatePayload = req.params;
   const parsedPayload = updateTodo.safeParse(updatePayload);
   if (!parsedPayload.success) {
     res.status(411).json({
@@ -52,15 +52,22 @@ app.put("/completed", async (req, res) => {
     return;
   }
   try {
-    const todo = await todo.findByIdAndUpdate(req.body.id, {
-      completed: !todo.completed,
-    });
-    //todo is not present in db
-    if (!todo) {
+    const presentTodo = await todo.findById(updatePayload.id)
+    //if todo is not present in db return 404
+    if (!presentTodo) {
       return res.status(404).send("Todo not found");
     }
-    res.send(todo);
+    await todo.updateOne(
+      {
+        _id: presentTodo._id,
+      },
+      {
+        completed: !presentTodo.completed,
+      }
+    );
+    res.send(presentTodo);
   } catch (error) {
+    console.log(error);
     res.status(400).json({
       msg: "Something went wrong",
     });

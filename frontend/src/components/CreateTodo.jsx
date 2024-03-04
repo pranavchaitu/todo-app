@@ -34,8 +34,6 @@ export function CreateTodo() {
           margin: "10px",
         }}
         onClick={() => {
-          console.log(title);
-          console.log(description);
           fetch("http://localhost:3000/todo", {
             method: "POST",
             body: JSON.stringify({
