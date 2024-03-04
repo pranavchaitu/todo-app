@@ -29,6 +29,7 @@ Technologies used:
 - Node.js
 - Express
 - MongoDB
+- Mongoose
 
 **Other (if applicable):**
 
