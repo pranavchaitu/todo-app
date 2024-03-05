@@ -32,6 +32,7 @@ export function CreateTodo() {
         style={{
           padding: "10px",
           margin: "10px",
+          cursor : "pointer"
         }}
         onClick={() => {
           fetch("http://localhost:3000/todo", {
