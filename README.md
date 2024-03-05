@@ -10,7 +10,7 @@ it has following features :
 My Approach:
 
 - created readme
-- mkdir backend
+- mkdir backend,
   express -> zod -> db -> routes
 - npm create vite@latest -> created react app named frontend
 - added components/createTodo,Todos for the page
