@@ -3,7 +3,7 @@ import axios from "axios";
 export function Todos({ todos, setTodos }) {
   async function handleMarkTodo(id) {
     try {
-      const res = await axios.put(`http://localhost:3000/todo/${id}`);
+      const res = await axios.put(`https://todo-app-0.onrender.com/todo/${id}`);
       setTodos(todos.map((t) => (t._id === id ? res.data : t)));
       // window.location.reload(false);
     } catch (error) {
@@ -40,7 +40,7 @@ export function Todos({ todos, setTodos }) {
               type="checkbox"
               checked={t.completed}
               style={{
-                cursor : "pointer"
+                cursor: "pointer",
               }}
               onChange={() => handleMarkTodo(t._id)}
             />
