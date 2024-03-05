@@ -35,7 +35,7 @@ export function CreateTodo() {
           cursor : "pointer"
         }}
         onClick={() => {
-          fetch("http://localhost:3000/todo", {
+          fetch("https://todo-app-0.onrender.com/todo", {
             method: "POST",
             body: JSON.stringify({
               title,

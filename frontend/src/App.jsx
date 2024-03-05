@@ -8,7 +8,7 @@ function App() {
 
   useEffect(() => {
     const fetchTodos = async () => {
-      const res = await fetch("http://localhost:3000/todos");
+      const res = await fetch("https://todo-app-0.onrender.com/todos");
       const json = await res.json();
       setTodos(json.todos);
     };
