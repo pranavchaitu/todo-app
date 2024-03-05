@@ -1,7 +1,6 @@
 import axios from "axios";
 
 export function Todos({ todos, setTodos }) {
-
   async function handleMarkTodo(id) {
     try {
       const res = await axios.put(`http://localhost:3000/todo/${id}`);
@@ -40,6 +39,9 @@ export function Todos({ todos, setTodos }) {
             <input
               type="checkbox"
               checked={t.completed}
+              style={{
+                cursor : "pointer"
+              }}
               onChange={() => handleMarkTodo(t._id)}
             />
           </div>
