@@ -5,7 +5,7 @@ export function Todos({ todos, setTodos }) {
     try {
       const res = await axios.put(`https://todo-app-0.onrender.com/todo/${id}`);
       setTodos(todos.map((t) => (t._id === id ? res.data : t)));
-      // window.location.reload(false);
+      window.location.reload(false);
     } catch (error) {
       console.error(error);
     }
