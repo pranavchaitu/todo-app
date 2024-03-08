@@ -34,8 +34,8 @@ export function CreateTodo() {
           margin: "10px",
           cursor : "pointer"
         }}
-        onClick={() => {
-          fetch("https://todo-app-0.onrender.com/todo", {
+        onClick={async () => {
+          await fetch("https://todo-app-0.onrender.com/todo", {
             method: "POST",
             body: JSON.stringify({
               title,
@@ -44,10 +44,7 @@ export function CreateTodo() {
             headers: {
               "Content-type": "application/json",
             },
-          }).then(() => {
-            alert("Todo added");
-            window.location.reload(false)
-          });
+          })
         }}
       >
         Add Todo
